@@ -1,0 +1,33 @@
+<h1>Customer Pickup</h1>
+
+<div  *ngIf="auth.currentPriv == 'driver'">
+	<div *ngIf="pickup">
+		<button class="btn btn-success" *ngIf="pickup.status == 'unclaimed'" (click)='claim()'>Claim</button>
+		<button class="btn btn-danger" *ngIf="(pickup.driver == auth.data.uid)" (click)='unclaim()'>Unclaim</button>		
+		<button class="btn btn-danger" *ngIf="(pickup.driver == auth.data.uid)" (click)='retrieved()'>Retrieved</button>
+		<button class="btn btn-danger" *ngIf="(pickup.driver == auth.data.uid)" (click)='delivered()'>Delivered</button>
+				<!-- <button class="btn btn-success" *ngIf="pickup.status == 'unclaimed'" (click)='claim()'>Claim</button>
+		<button class="btn btn-danger" *ngIf="(pickup.driver == auth.data.uid) && (pickup.status == 'claimed')" (click)='unclaim()'>Unclaim</button>		
+		<button class="btn btn-danger" *ngIf="(pickup.driver == auth.data.uid) && (pickup.status == 'claimed')" (click)='retrieved()'>Retrieved</button>
+		<button class="btn btn-danger" *ngIf="(pickup.driver == auth.data.uid) && (pickup.status == 'retrieved')" (click)='delivered()'>Delivered</button> -->
+	</div>
+</div>
+<div  *ngIf="auth.currentPriv != 'driver'">
+	<div *ngIf="pickup">
+		<h3 style="text-transform:capitalize;">Status: {{ pickup.status}}</h3>
+	</div>
+</div>
+
+<google-map width="100%"
+            [center]="center"
+            [zoom]="zoom"
+             #map>
+  <map-marker *ngFor="let markerPosition of markerPositions"
+              [position]="markerPosition"
+              [options]="markerOptions"></map-marker>
+    <map-directions-renderer *ngIf="(directionsResults$ | async) as directionsResults"
+               [directions]="directionsResults"></map-directions-renderer>
+
+</google-map>
+
+
