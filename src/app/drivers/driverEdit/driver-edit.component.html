@@ -1,15 +1,20 @@
+<!--DRIVER DATA PAGE - DISPLAYS THE DRIVER'S DETAILS-->
+
 <h1>Edit {{ driver.name }}</h1>
 <div class="row">
 	<div class="col-xs-12">
 				<form [formGroup]="driverForm" (ngSubmit)="onSubmit()" >
-
+      
+      <!--TABLE FORM - NESTED DIVS USED TO DISPLAY THE DRIVER'S INFORMATION-->
+      <!--FIRST ROW - CONTAINS 2 BUTTONS, SAVE AND CANCEL -->
 			<div class="row">
 				<div class="col-xs-12">
 					<button [disabled]="!driverForm.valid" type="submit" class="btn btn-success">Save</button>				
 					<button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
 				</div>
 			</div>
-
+          
+      <!--DISPLAYS DRIVER'S NAME-->
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="form-group">
@@ -19,6 +24,7 @@
 				</div>
 			</div>
 
+      <!--DIPLAYS DRIVER'S EMAIL-->
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="form-group">
@@ -28,6 +34,7 @@
 				</div>
 			</div>
 
+       <!--DISPLAYS DRIVER'S STATUS - AVAILABLE, BUSY, UNAVAILABLE-->
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="form-group">
@@ -37,25 +44,36 @@
 				</div>
 			</div>
 
+      <!--ANOTHER TABLE - CONTAINS THE DRIVER'S VEHICLE DATA-->
 			<div class="row">
 				<div class="col-xs-12" formArrayName="cars">
 						<div class="row" *ngFor="let carControl of getDriversCtrl(); let i = index" [formGroupName]="i" style="margin-top: 10px;">
+              
+              <!--DRIVER'S CAR MODEL ROW-->
 							<label class="col-xs-4" for="carModel">Model</label>
 							<div class="col-xs-8">
 								<input type="text" class="form-control" name="carModel" formControlName="model">
 							</div>
+              
+              <!--DRIVER'S CAR BRAND ROW-->
 							<label class="col-xs-4" for="carBrand">Brand</label>
 							<div class="col-xs-8">
 								<input type="text" class="form-control" name="carBrand" formControlName="brand">
 							</div>
+              
+              <!--DRIVER'S CAR COLOR ROW-->
 							<label class="col-xs-4" for="carColor">Color</label>
 							<div class="col-xs-8">
 								<input type="text" class="form-control" name="carColor" formControlName="color">
 							</div>
+              
+              <!--DRIVER'S CAR YEAR ROW-->
 							<label class="col-xs-4" for="carYear">Year</label>
 							<div class="col-xs-8">
 								<input type="number" class="form-control" name="carYear" formControlName="year">
-							</div>							
+							</div>					
+              
+              <!--ROW CONTAINING THE DELETE CAR BUTTON AND SETTING A VEHICLE AS HIS/HER PRIMARY VEHICLE-->
 							<div class="col-xs-4">
 								<button type="button" class="btn btn-danger" (click)="onDeleteCar(i)" >Delete Car</button>
 							</div>							
@@ -65,6 +83,8 @@
 							<hr>
 						</div>
 						<hr>
+            
+            <!--BUTTON TO ADD A CAR-->
 						<div class="row">
 							<div class="col-xs-12">
 								<button class="btn btn-success" type="button" (click)="onAddCar()" >Add Car</button>
