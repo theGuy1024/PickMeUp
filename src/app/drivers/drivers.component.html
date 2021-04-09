@@ -1,22 +1,33 @@
+<!--DISPLAYS A LIST OF DRIVERS WITH THEIR DATA-->
+
 <h1>Drivers</h1>
 
 <div class="row">
 	<div class="col-xs-12">
 		<form (ngSubmit)="addNewDriver(f)" #f="ngForm">
 			<div class="row">
+        
+        <!--FIELDS TO ADD A NEW DRIVER:-->
+        <!--FIELD TO ADD THE DRIVER'S EMAIL-->
 				<div class="col-sm-5 form-group">
 					<label for="email">Email</label>
 					<input type="text" name="email" id="email" class="form-control" ngModel required>
 				</div>
+        
+        <!--FIELD TO ADD THE DRIVER'S NAME--> 
 				<div class="col-sm-2 form-group">
 					<label for="name">Name</label>
 					<input type="text" name="name" id="name" class="form-control" ngModel required>
-				</div>				
+				</div>	
+        
+        <!--FIELD TO ADD THE DRIVER'S STAUTS--> 
 				<div class="col-sm-2 form-group">
 					<label for="status">Status</label>
 					<input type="text" name="status" id="status" class="form-control" ngModel required>
 				</div>
 			</div>
+      
+      <!--ROW CONTAINING THE SAVE AND CLEAR BUTTON-->
 			<div class="row">
 				<div class="col-xs-12">
 					<button class="btn btn-success" type="submit" [disabled]="!f.valid">Add</button>
@@ -27,9 +38,12 @@
 	</div>
 </div>
 
+<!--BUTTON TO SAVE THE DATA ON TO THE DATABASE-->
 <button class="btn btn-primary" (click)="save()"> Save To DB </button>
 
+<!--**TABLE THAT DISPLAYS THE LIST OF DRIVERS FROM THE DATABASE**-->
 <table width="100%">
+  <!--ROW HEADER -->
 	<tr>
 		<th>Email</th>
 		<th>Name</th>
@@ -37,9 +51,13 @@
 		<th>Edit</th>
 	</tr>
 
+  <!--DATA PULLED FROM THE DATABASE-->
 	<tr *ngFor="let driver of drivers; let i = index">
+    <!--COLUMN DISPLAYING THE EMAIL OF ALL DRIVERS-->
 		<th>{{ driver.email }}</th>
+    <!--COLUMN DISPLAYING THE NAME OF ALL DRIVERS-->
 		<th>{{ driver.name }}</th>
+    <!--COLUMN DISPLAYING THE STATUS OF ALL DRIVERS-->
 		<th>{{ driver.status }}</th>
 		<th> <button class="btn btn-primary" routerLink="{{i}}/edit"> Edit </button></th>
 	</tr>
