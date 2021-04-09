@@ -1,6 +1,9 @@
+<!--  LIVE MAP PAGE - contains all the requests done by the clients-->
 
-    <h1 class="appTitle" style="margin-top: 10px; ">Live Map</h1>
-	<google-map width="100%"
+<h1 class="appTitle" style="margin-top: 10px; ">Live Map</h1>
+
+<!-- GOOGLE MAP FRAME -->
+<google-map width="100%"
 	            [center]="center"
 	            [zoom]="zoom"
 	            (mapClick)="addMarker($event)" #map>
@@ -8,4 +11,4 @@
 	  <map-marker *ngFor="let markerPosition of markerPositions"
 	              [position]="markerPosition"
 	              [options]="markerOptions" (click)="mapMarkerClick($event)"></map-marker>
-	</google-map>
+</google-map>
