@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+/*GLOBAL STYLE FOR ALL USER PAGES*/
 body{
     background-image: linear-gradient(45deg, #ffccc6e1, white, #c4f8ffd5);
     width: 100vw;
@@ -9,14 +10,14 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
-
-
+/*INDEX'S/LOGIN MAIN CONTAINER*/
 #mainContent{
     text-align: center;
 }
 
 
 /* ------------------LOGIN------------------ */
+/*LOGIN FORM OUTER CONTAINER*/
 .loginForm{
     position: absolute;
     top: 25%;
@@ -62,6 +63,7 @@ body{
 
 
 /* ------------------BUTTONS------------------ */
+/*AREA WHERE THE INNER LOGIN FIELDS AND BUTTONS ARE LOCATED*/
 .innerBlock{
     position: absolute;
     top: 50%;
@@ -69,12 +71,14 @@ body{
     transform: translate(-50%, -50%);
 }
 
+/*CONTAINER THAT HOLDS THE HOME BUTTONS FOR ALL USERS(CLIENTS, DRIVERS & ADMIN)*/
 .innerBlock input, .innerBlock button{
     display: block;
     margin-bottom: 20px;
     align-items: center;
 }
 
+/*CORE BUTTON STYLES*/
 .btn{
     outline: none;
     border: 2px solid black;
@@ -82,16 +86,19 @@ body{
     font-size: 1.1rem;
 }
 
+/*MAKES THE BUTTON OVAL IN SHAPE*/
 .ovalBtn{
     padding: 5px 25px;
     border-radius: 20px;
 }
 
+/*MAKES THE BUTTON OF BLUE COLOR*/
 .blueBtn{
     background: rgb(81, 142, 255);
     color: white;
 }
 
+/*HOME BUTTONS STYLE FOR ALL USERS*/
 .homeBtn{
     padding: 5px;
     font-size: 2rem;
@@ -107,6 +114,7 @@ body{
     border-radius: 10px;
 }
 
+/*PLACES THE BUTTON AT THE VERY BOTTOM OF THE USER'S SCREEN*/
 .logoutBtn{
     position: absolute;
     bottom: 2%;
@@ -117,6 +125,7 @@ body{
     font-size: 1.5rem;
 }
 
+/*BOTTOM BUTTONS (CLOSE, CANCEL, SAVE, ETC) STYLE USED FOR SUBPAGE(ADD DRIVER, VIEW MAP, VIEW REQUESTS)*/
 .lowerBtn{
     font-size: 1.4rem;
     display: inline;
@@ -156,6 +165,7 @@ body{
     transition: 0.3s;
 }
 
+/*ZOOM EFFECT WHEN CLICKED ON THE TEXT AREA*/
 .textArea:focus{
     padding: 10px 0 10px 15px;
     border: 3px solid black;
@@ -213,13 +223,14 @@ body{
     border: 2px solid black;
 }
 
+/*SUBPAGE(ADD DRIVER, VIEW MAP, VIEW REQUESTS) STYLES - PLACES BEHIND THE HOME PAGE*/
 .newPage{
     z-index: 1;
     text-align: center;
     display: none;
 }
 
-/*new page styles*/
+/*MAKES THE SUBPAGES 100% OF THE USER'S SCREEN*/
 .newTab{
     width: 100vw;
     height: 100vh;
@@ -246,8 +257,10 @@ body{
     to{transform: translateX(-110%);}
 }
 
-/* - - - - - - 450PX WIDE SCREENS - - - - - - */
+/* - - - - - - 650PX WIDE SCREENS - - - - - - */
+/*FOR SCREENS 650PX WIDE - HIDES THE LOGO AREA OF THE LOGIN SCREEN*/
 @media screen and (max-width: 650px) {
+    /*SHRINKS THE LOGIN FORM*/
     .loginForm{
         width: 400px;
     }
@@ -255,14 +268,18 @@ body{
     .logoArea{
         display: none;
     }
-
+  
+    /*PLACES THE LOGIN AREA TO THE COLAPSED AREA*/
     .loginArea{
         top: 0;
         left: 0;
     }
 }
 
+/* - - - - - - 400PX WIDE SCREENS - - - - - - */
+/*FOR SCREENS 400PX WIDE - SHRINKS THE LOGIN AREA OF THE LOGIN SCREEN*/
 @media screen and (max-width: 400px) {
+  /*SHRINKS THE LOGIN FORM*/
     .loginForm{
         width: 300px;
     }
@@ -270,7 +287,8 @@ body{
     .logoArea{
         display: none;
     }
-
+    
+    /*PLACES THE LOGIN AREA TO THE COLAPSED AREA*/
     .innerLogin{
         width: 290px;
         left: -12%;
